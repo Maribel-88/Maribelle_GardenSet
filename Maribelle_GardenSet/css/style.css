@@ -33,6 +33,11 @@ a {
  
 }
 
+
+.container {
+    position:relative;
+}
+
 #contactInfo {
     background-color: #8c240a;
 
@@ -210,4 +215,13 @@ a {
     color:#fff;
     border-radius: 4px;
     padding: 10px;
+}
+/* Refunds Styles*/
+
+#refund {
+    text-decoration: underline;
+}
+
+#refundDetails {
+    flex-direction: column;
 }

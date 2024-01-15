@@ -14,11 +14,11 @@ let generateShop = () => {
           <h3>${name}</h3>
           <p>${desc}</p>
           <div class="price-quantity">
-            <h2>£ ${price}</h2>
-            <div class="buttons">
-              <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-              <div id=${id} class="quantity">${search.item === undefined ? 0 : search.item}</div>
-              <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
+            <div id="price"><h2>£${price}</h2></div>
+            <div class="btn-group btn-group-sm " role="group" aria-label="Basic example">
+                <button onclick="decrement(${id})" type="button" class="btn btn-light bi bi-dash-lg"></button>
+                <button id=${id} type="button" class="btn btn-light quantity">${search.item === undefined ? 0 : search.item}</button>
+                <button onclick="increment(${id})" type="button" class="btn btn-light bi bi-plus-lg"></button>
             </div>
           </div>
         </div>

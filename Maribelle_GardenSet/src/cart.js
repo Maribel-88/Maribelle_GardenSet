@@ -1,3 +1,5 @@
+
+
 let label = document.getElementById("label");
 let ShoppingCart = document.getElementById("shopping-cart");
 
@@ -18,23 +20,27 @@ let calculation =()=>{
         let search = shopItemsData.find((y)=>y.id === id) || [];
         let {img, name, price}= search;
         return`
-        <div class="cart-item"><img class="img-fluid" width="120" height="150" src=${img} alt="" />
+        <div class="cart-item ">
+        <img class="img-fluid" width="120" height="150" src=${img} alt="" />
           <div class="details">
             <div class="title-price-x">
                <h6 class="title-price">
                <p>${name}</p>
-               <p class="cart-item-price">$ ${price}</p>
+               <p class="cart-item-price">£ ${price}</p>
                </h6>
                <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
             </div>
-
-            <div class="buttons">
-              <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-              <div id=${id} class="quantity">${item}</div>
-              <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
+           
+           
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                <button onclick="decrement(${id})" type="button" class="btn btn-light bi bi-dash-lg"></button>
+                <button id=${id} type="button" class="btn btn-light quantity">${item}</button>
+                <button onclick="increment(${id})" type="button" class="btn btn-light bi bi-plus-lg"></button>
             </div>
-
-            <h5>$ ${item * search.price}</h5>
+           
+            <div id="priceQuantity">
+            <h5 class="d-flex justify-content-end ">£ ${item * search.price}</h5>
+            </div>
           </div> 
         </div>
         `;
@@ -128,7 +134,7 @@ let TotalAmount = () => {
     }).reduce((x,y)=>x+y, 0);
     // console.log(amount);
     label.innerHTML = `
-    <h2>Total Bill : $ ${amount}</h2>
+    <h2>Grand Total : £ ${amount}</h2>
     <button class="checkout">Checkout</button>
     <button onclick="clearCart()"class="removeAll">Clear Cart</button>
     `;
@@ -136,3 +142,4 @@ let TotalAmount = () => {
 };
 
 TotalAmount();
+
